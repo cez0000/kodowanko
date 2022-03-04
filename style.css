@@ -1,3 +1,9 @@
+
+
+body {display: flex;
+justify-content: center;
+margin: 0;}
+
 section.board {
     position: absolute;
     width: 800px;
@@ -56,11 +62,27 @@ img {
     height: 80px;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    animation: ball 8s linear infinite
+    transform: translate(-50%, -50%);}
+
+    /* animation: rotate 2s linear infinite
+ */
+ div.score1 {width: 200px;
+height: 100px;
+border: 5px solid black;
+font-size: 30px;
+font-family: arial;
+text-align: center;
+line-height: 100px;}
+div.score2 {width: 200px;
+    height: 100px;
+    border: 5px solid black;
+    font-size: 30px;
+    font-family: arial;
+    text-align: center;
+    line-height: 100px;
 }
 
-@keyframes ball {
+/* @keyframes ball {
     0% {
         top: 60%;
         left: 50%;
@@ -90,4 +112,8 @@ img {
     }
     100% {left: 110%;
     top: 30%;}
+} */
+@keyframes rotate {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
 }
