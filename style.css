@@ -2,6 +2,7 @@ body {
     display: flex;
     justify-content: center;
     margin: 0;
+    overflow: hidden;
 }
 
 section.board {
@@ -14,7 +15,7 @@ section.board {
     transform: translate(-50%, -50%);
     border: 10px solid lightblue;
     overflow: hidden;
-
+    
 }
 
 div.paddle1 {
@@ -62,7 +63,7 @@ img {
     height: 80px;
     top: 50%;
     left: 50%;
-    animation: rotate 5s linear infinite;
+    animation: rotate .5s linear infinite;
     
 }
 
@@ -96,7 +97,7 @@ div.gol {
     font-size: 200px;
     text-transform: uppercase;
     transform: scale(0);
-    transition: .3s;
+    transition: 100s;
 }
 
 div.gol.active {

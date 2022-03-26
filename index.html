@@ -57,16 +57,23 @@
                 directionX = 'right';
             } else if (jarekX === 30) {
                 console.log('GOL');
-                document.querySelector('div.score1').innerText++;
-                document.querySelector('div.gol').classList.toggle('active');
+                document.querySelector('div.score2').innerText++;
+                document.querySelector('div.gol').classList.add('active');
+                
+                setTimeout(function(){document.querySelector('div.gol').classList.remove("active")}, 3000);
+               
+                
+                
                 sleep(2000);
                 jarekX = 400;
             } else if (jarekX === 720 && computerY - 80 < jarekY && computerY + 80 > jarekY) {
                 directionX = 'left';
             } else if (jarekX === 720) {
                 console.log('GOL');
-                document.querySelector('div.score2').innerText++;
-                document.querySelector('div.gol').classList.toggle('active');
+                document.querySelector('div.score1').innerText++;
+                document.querySelector('div.gol').classList.add('active');
+                
+                setTimeout(function(){document.querySelector('div.gol').classList.remove("active")}, 3000);
                 sleep(2000);
                 jarekX = 400;
             }
