@@ -15,7 +15,7 @@ section.board {
     transform: translate(-50%, -50%);
     border: 10px solid lightblue;
     overflow: hidden;
-    
+
 }
 
 div.paddle1 {
@@ -64,7 +64,7 @@ img {
     top: 50%;
     left: 50%;
     animation: rotate .5s linear infinite;
-    
+
 }
 
 /* animation: rotate 2s linear infinite
@@ -102,8 +102,8 @@ div.gol {
 
 div.gol.active {
     animation: gol 1s linear;
-    
-    
+
+
 }
 
 /* @keyframes ball {
@@ -159,4 +159,33 @@ div.gol.active {
     100% {
         transform: scale(0)
     }
+}
+
+button.restart {
+    position: fixed;
+    top: 70%;
+    left: 50%;
+    width: 200px;
+    height: 80px;
+    transform: translateX(-50%);
+    font-size: 32px;
+    color: indigo;
+    background-color: chartreuse;
+    border: 5px solid gray;
+    transition: .3s;
+    cursor: pointer;
+}
+
+button.restart:hover {
+    color: white;
+    background-color: black;
+}
+
+h1.result {
+    font-size: 150px;
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
 }

@@ -21,6 +21,7 @@
         <img src="/jaraaa-removebg-preview (1).png" alt="">
     </section>
     <div class="gol">gol!</div>
+
     <script>
         function sleep(milliseconds) {
             const date = Date.now();
@@ -33,6 +34,13 @@
         const player = document.querySelector('.paddle1');
         const computer = document.querySelector('.paddle2');
         const jarek = document.querySelector('img');
+        const playerScore = document.querySelector('div.score1');
+        const aiScore = document.querySelector('div.score2');
+        const btn = document.createElement("button");
+        const result = document.createElement("h1")
+        let number = 0;
+        let number2 = 0
+
 
         let jarekX = 400;
         let jarekY = 250;
@@ -46,7 +54,7 @@
 
         let directionX = 'left';
         let directionY = 'up'
-        setInterval(() => {
+        const id = setInterval(() => {
             if (directionX === 'left') {
                 jarekX -= 2;
             } else if (directionX === 'right') {
@@ -57,23 +65,52 @@
                 directionX = 'right';
             } else if (jarekX === 30) {
                 console.log('GOL');
-                document.querySelector('div.score2').innerText++;
+                number2++
+                aiScore.innerText = number2;
                 document.querySelector('div.gol').classList.add('active');
-                
-                setTimeout(function(){document.querySelector('div.gol').classList.remove("active")}, 3000);
-               
-                
-                
+                if (number2 === 5) {
+                    document.body.appendChild(btn)
+                    btn.classList.add("restart");
+                    btn.textContent = "restart";
+                    function refresh() {location.reload()}
+                    btn.addEventListener('click', refresh);
+                    document.body.appendChild(result);
+                    result.classList.add("result")
+                    result.textContent = "YOU LOSE!"
+                    clearInterval(id)
+                }
+
+                setTimeout(function () {
+                    document.querySelector('div.gol').classList.remove("active")
+                }, 3000);
+
+
+
                 sleep(2000);
                 jarekX = 400;
             } else if (jarekX === 720 && computerY - 80 < jarekY && computerY + 80 > jarekY) {
                 directionX = 'left';
             } else if (jarekX === 720) {
                 console.log('GOL');
-                document.querySelector('div.score1').innerText++;
+                number++
+                playerScore.innerText = number;
                 document.querySelector('div.gol').classList.add('active');
-                
-                setTimeout(function(){document.querySelector('div.gol').classList.remove("active")}, 3000);
+                if (number === 5) {
+                    document.body.appendChild(btn)
+                    btn.classList.add("restart");
+                    btn.textContent = "restart";
+                    function refresh() {location.reload()}
+                    btn.addEventListener('click', refresh);
+                    document.body.appendChild(result);
+                    result.classList.add("result")
+                    result.textContent = "YOU WIN!"
+                    clearInterval(id)
+                }
+               
+
+                setTimeout(function () {
+                    document.querySelector('div.gol').classList.remove("active")
+                }, 3000);
                 sleep(2000);
                 jarekX = 400;
             }
@@ -107,7 +144,14 @@
                 playerY += 10;
             }
 
-        });
+        })
+        // OKreślenie strony wygranej i restart gry
+
+
+
+       
+    </script>
+
     </script>
 </body>
 
