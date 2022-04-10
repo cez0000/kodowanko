@@ -5,9 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="./style.css">
     <title>Jarek Pong</title>
-</head>
 
 <body>
     <div class="score1">0</div>
@@ -18,9 +17,25 @@
         <div class="paddle2"></div>
         <div class="center"></div>
         <div class="circle"></div>
-        <img src="/jaraaa-removebg-preview (1).png" alt="">
+        <img class="jarek" src="./jaraaa-removebg-preview (1).png" alt="">
     </section>
     <div class="gol">gol!</div>
+    <section class="choice">
+        <div>
+            <img class="michasChoice" src="./michas-removebg-preview.png" alt="">
+        </div>
+        <div>
+            <img class="jarekChoice" src="./jaraaa-removebg-preview (1).png" alt="">
+        </div>
+        <div>
+            <img class="babcia" src="./babcia-removebg-preview.png" alt="">
+        </div>
+    </section>
+
+    <div class="background">
+        <img class="pilkarz" src="./pilkarz.jpg">
+        <img class="pilkarz" src="./pilkarz.jpg">
+    </div>
 
     <script>
         function sleep(milliseconds) {
@@ -33,11 +48,14 @@
 
         const player = document.querySelector('.paddle1');
         const computer = document.querySelector('.paddle2');
-        const jarek = document.querySelector('img');
+        const jarek = document.querySelector('img.jarek');
         const playerScore = document.querySelector('div.score1');
         const aiScore = document.querySelector('div.score2');
         const btn = document.createElement("button");
-        const result = document.createElement("h1")
+        const result = document.createElement("h1");
+        const jarekChoice = document.querySelector('img.jarekChoice');
+        const michasChoice = document.querySelector('img.michasChoice');
+        const babcia = document.querySelector('img.babcia')
         let number = 0;
         let number2 = 0
 
@@ -72,7 +90,10 @@
                     document.body.appendChild(btn)
                     btn.classList.add("restart");
                     btn.textContent = "restart";
-                    function refresh() {location.reload()}
+
+                    function refresh() {
+                        location.reload()
+                    }
                     btn.addEventListener('click', refresh);
                     document.body.appendChild(result);
                     result.classList.add("result")
@@ -99,14 +120,17 @@
                     document.body.appendChild(btn)
                     btn.classList.add("restart");
                     btn.textContent = "restart";
-                    function refresh() {location.reload()}
+
+                    function refresh() {
+                        location.reload()
+                    }
                     btn.addEventListener('click', refresh);
                     document.body.appendChild(result);
                     result.classList.add("result")
                     result.textContent = "YOU WIN!"
                     clearInterval(id)
                 }
-               
+
 
                 setTimeout(function () {
                     document.querySelector('div.gol').classList.remove("active")
@@ -145,11 +169,21 @@
             }
 
         })
-        // OKreślenie strony wygranej i restart gry
+        // Wybór głowy
+        function changeMichas() {
+            jarek.src = "michas-removebg-preview.png"
+        }
+        michasChoice.addEventListener('click', changeMichas)
 
+        function changeJarek() {
+            jarek.src = "jaraaa-removebg-preview (1).png"
+        }
+        jarekChoice.addEventListener('click', changeJarek)
 
-
-       
+        function changeBabcia() {
+            jarek.src = "babcia-removebg-preview.png"
+        }
+        babcia.addEventListener('click', changeBabcia)
     </script>
 
     </script>
