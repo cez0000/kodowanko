@@ -15,7 +15,10 @@ const btn = document.createElement("button");
 const result = document.createElement("h1");
 const jarekChoice = document.querySelector('img.jarekChoice');
 const michasChoice = document.querySelector('img.michasChoice');
-const babcia = document.querySelector('img.babcia')
+const babcia = document.querySelector('img.babcia');
+const higherLev = document.querySelector('div.plus');
+const lowerLev = document.querySelector('div.minus');
+const level = document.querySelector('h3.level')
 let number = 0;
 let number2 = 0
 
@@ -100,12 +103,24 @@ const id = setInterval(() => {
     }
 
 
-    if (directionY === 'up') {
+    if (directionY === 'up' && level.textContent === 'łatwy') {
         jarekY -= 2;
         computerY -= 1;
-    } else if (directionY === 'down') {
+    } else if (directionY === 'down' && level.textContent === 'łatwy') {
         jarekY += 2;
         computerY += 1;
+    } else if (directionY === 'up' && level.textContent === 'średni') {
+        jarekY -= 2;
+        computerY -= 1.4;
+    } else if (directionY === 'down' && level.textContent === 'średni') {
+        jarekY += 2;
+        computerY += 1.4;
+    } else if (directionY === 'up' && level.textContent === 'trudny') {
+        jarekY -= 2;
+        computerY -= 1.8;
+    } else if (directionY === 'down' && level.textContent === 'trudny') {
+        jarekY += 2;
+        computerY += 1.8;
     }
 
     if (jarekY === 20) {
@@ -143,4 +158,35 @@ jarekChoice.addEventListener('click', changeJarek)
 function changeBabcia() {
     jarek.src = "babcia-removebg-preview.png"
 }
-babcia.addEventListener('click', changeBabcia)
+babcia.addEventListener('click', changeBabcia);
+// Wybór poziomu trudności
+function levelUp() {
+    if (level.textContent === "łatwy") {
+        level.textContent = "średni";
+        level.style.color = "orange"
+    } else if (level.textContent === "średni") {
+        level.textContent = "trudny";
+        level.style.color = "red"
+
+    } else {
+        return
+    }
+}
+
+function levelDown() {
+    if (level.textContent === "trudny") {
+        level.textContent = "średni";
+        level.style.color = "orange"
+    } else if (level.textContent === "średni") {
+        level.textContent = "łatwy";
+        level.style.color = "white"
+
+    } else {
+        return
+    }
+}
+
+
+
+higherLev.addEventListener('click', levelUp);
+lowerLev.addEventListener('click', levelDown);
