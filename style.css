@@ -287,14 +287,14 @@ section.levelChoice div:hover {
 }
 
 section.levelChoice h2 {
-    font-size: 32px;
+    font-size: 28px;
     text-transform: uppercase;
 }
 
 section.levelChoice h3 {
     
     margin-top: 15px;
-    font-size: 28px;
+    font-size: 26px;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
 }
